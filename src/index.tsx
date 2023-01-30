@@ -83,7 +83,7 @@ export class SignatureCanvas extends Component<SignatureCanvasProps> {
     copy.width = canvas.width
     copy.height = canvas.height
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    copy.getContext('2d')!.drawImage(canvas, 0, 0)
+    copy.getContext('2d', { willReadFrequently: true })!.drawImage(canvas, 0, 0);
     // then trim it
     return trimCanvas(copy)
   }
